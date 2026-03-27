@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NYC Trail Guide</title>
+
+    <!-- Google Fonts: Playfair Display for headings, Lato for body -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Link to our external CSS file -->
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+
+
+
+<body>
+
+    <!-- =============================================
+       NAVIGATION BAR
+       ============================================= -->
+    <nav>
+        <div class="nav-logo" onclick="showPage('home')">🌿 NYC <span>Trail Guide</span></div>
+        <div class="nav-links">
+            <!-- Each button calls showPage() with the borough ID -->
+            <button class="nav-btn" onclick="showPage('manhattan')">Manhattan</button>
+            <button class="nav-btn" onclick="showPage('brooklyn')">Brooklyn</button>
+            <button class="nav-btn" onclick="showPage('queens')">Queens</button>
+            <button class="nav-btn" onclick="showPage('bronx')">The Bronx</button>
+            <button class="nav-btn" onclick="showPage('staten-island')">Staten Island</button>
+        </div>
+    </nav>
+
+
+    <!-- =============================================
+       HOME / LAUNCH PAGE
+       ============================================= -->
+    <div id="home" class="page active">
+
+        <!-- Hero banner -->
+        <section class="hero">
+            <h1>Discover NYC's Hidden Trails</h1>
+            <p>New York City is more than just its urban core- there are over 20,000 acres of parks, forests, and
+                wetlands across the five boroughs.</p>
+        </section>
+
+        <!-- Intro blurb -->
+        <section class="intro-section">
+            <h2>Hiking Trails Across the City</h2>
+            <p>From the ancient woods in Staten Island to the salt marshes of Queens, NYC contains a rich network of
+                hiking trails throughout the city's parks.</p>
+            <div class="tip-box">
+                <h3>Always remember to:</h3>
+                <ul>
+                    <li>Stay on marked trails to protect wildlife habitats.</li>
+                    <li>Adhere to Leave No Trace principles</li>
+                    <li>Check the NYC Parks website for trail conditions.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Borough selection buttons -->
+        <h3 style="text-align: center;">Select a borough below to start exploring:</h3>
+        <section class="borough-grid">
+
+            <div class="borough-card" onclick="showPage('manhattan')">
+                <div class="icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Global_Citizen_Festival_Central_Park_New_York_City_from_NYonAir_%2815351915006%29.jpg/330px-Global_Citizen_Festival_Central_Park_New_York_City_from_NYonAir_%2815351915006%29.jpg"
+                        class="borough-img" alt="Manhattan">
+                </div>
+                <h3>Manhattan</h3>
+            </div>
+
+            <div class="borough-card" onclick="showPage('brooklyn')">
+                <div class="icon">
+                    <img src="https://www.nycgovparks.org/photo_gallery/full_size/22931.jpg" class="borough-img"
+                        alt="Brooklyn">
+                </div>
+                <h3>Brooklyn</h3>
+            </div>
+
+            <div class="borough-card" onclick="showPage('queens')">
+                <div class="icon">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Aerial_photo_of_the_Ridgewood_Reservoir%2C_February_2020.jpg"
+                        class="borough-img" alt="Queens">
+                </div>
+                <h3>Queens</h3>
+            </div>
+
+            <div class="borough-card" onclick="showPage('bronx')">
+                <div class="icon">
+                    <img src="https://static01.nyt.com/images/2020/08/06/arts/05kimmelman-bronx-yankee-rendering/05kimmelman-bronx-yankee-rendering-superJumbo.jpg"
+                        class="borough-img" alt="The Bronx">
+                </div>
+                <h3>The Bronx</h3>
+            </div>
+
+            <div class="borough-card" onclick="showPage('staten-island')">
+                <div class="icon">
+                    <img src="https://i2.wp.com/www.atinytrip.com/wp-content/uploads/greenbelt-1.jpg?fit=1024%2C683&ssl=1"
+                        class="borough-img" alt="Staten Island">
+                </div>
+                <h3>Staten Island</h3>
+            </div>
+
+        </section>
+
+    </div><!-- end #home -->
+
+
+    <!-- =============================================
+       MANHATTAN PAGE
+       ============================================= -->
+    <div id="manhattan" class="page">
+        <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+        <div class="borough-header">
+            <h1>Manhattan Trails</h1>
+            <p>Find green spaces tucked between skyscrapers and the Hudson River.</p>
+        </div>
+        <div class="hikes-grid">
+
+            <div class="hike-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="icon">
+                            <img src="https://www.tclf.org/sites/default/files/styles/full_width/public/thumbnails/image/InwoodHill_feature1_2012_CharleyLhasa.jpg?itok=fUTBkizW"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                            <span class="hike-img-label">Inwood Hill Park</span>
+                        </div>
+                    </div>
+
+                    <div class="card-back">
+                        <div class="hike-body">
+                            <h3>Inwood Hill Park Loop</h3>
+                            <p>Manhattan's last remaining old-growth forest. Walk through ancient caves and take in
+                                views of the Hudson River and the Palisades.</p>
+                            <div class="hike-stats">
+                                <span class="stat">📍 Inwood</span>
+                                <span class="stat">📏 2.5 miles</span>
+                                <span class="stat difficulty-easy">Easy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hike-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="icon">
+                            <img src="https://live.staticflickr.com/7706/17423477741_2147ab66e5_b.jpg"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                            <span class="hike-img-label">Fort Tryon Park</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="hike-body">
+                            <h3>Fort Tryon Park & The Heather Garden</h3>
+                            <p>Historic hilltop park featuring the largest public garden in the NYC parks system.
+                                Winding paths offer stunning Hudson River views and a peek at The Met Cloisters.</p>
+                            <div class="hike-stats">
+                                <span class="stat">📍 Washington Heights</span>
+                                <span class="stat">📏 1.8 miles</span>
+                                <span class="stat difficulty-easy">Easy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hike-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="icon">
+                            <img src="https://cdn.prod.website-files.com/65329423a966d94a21420905/6942cb8e0c52c98a9616b77f_attractions%252FChIJL1DP2C72wokRh3Lfn4T0Z3w%252F1765984924720_riverside-park.webp"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                            <span class="hike-img-label">Riverside Park</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="hike-body">
+                            <h3>Riverside Park Waterfront Trail</h3>
+                            <p>A scenic 4-mile stretch along the Hudson River, passing memorials, playgrounds, and the
+                                79th Street Boat Basin.</p>
+                            <div class="hike-stats">
+                                <span class="stat">📍 Upper West Side</span>
+                                <span class="stat">📏 4.0 miles</span>
+                                <span class="stat difficulty-easy">Easy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- end #manhattan -->
+
+
+    <!-- =============================================
+       BROOKLYN PAGE
+       ============================================= -->
+    <div id="brooklyn" class="page">
+        <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+        <div class="borough-header">
+            <h1>Brooklyn Trails</h1>
+            <p>Explore coastal marshes, woodland paths, and waterfront greenways in Kings County.</p>
+        </div>
+        <div class="hikes-grid">
+            <div class="hike-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="icon">
+                            <img src="https://www.prospectpark.org/wp-content/uploads/2025/07/Scenic-Viewpoint-Ambergil-Cascade-1-1024x680.jpg"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                            <span class="hike-img-label">Prospect Park</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="hike-body">
+                            <h3>Prospect Park Forest Loop</h3>
+                            <p>Brooklyn's beloved park features the borough's only remaining forest. The winding loop
+                                takes you through meadows, past a lake, and through dense woodland.</p>
+                            <div class="hike-stats">
+                                <span class="stat">📍 Park Slope</span>
+                                <span class="stat">📏 3.3 miles</span>
+                                <span class="stat difficulty-easy">Easy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hike-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="icon">
+                            <img src="https://www.nycgovparks.org/pagefiles/166/salt-marsh-pelham-bay-park__60acfbe2e5529.jpg"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                            <span class="hike-img-label">Marine Park</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="hike-body">
+                            <h3>Marine Park Salt Marsh Trail</h3>
+                            <p>NYC's largest park boasts one of the most pristine salt marshes in the northeast. This
+                                flat, peaceful trail is a birdwatcher's paradise.</p>
+                            <div class="hike-stats">
+                                <span class="stat">📍 Marine Park</span>
+                                <span class="stat">📏 2.0 miles</span>
+                                <span class="stat difficulty-easy">Easy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hike-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="icon">
+                            <img src="https://www.brownstoner.com/wp-content/uploads/2020/07/greenwood-cemetery-brooklyn-architecture-arts-2019-2.jpg"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                            <span class="hike-img-label">Greenwood Cemetery</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="hike-body">
+                            <h3>Green-Wood Cemetery Walking Trail</h3>
+                            <p>Rolling hills, Victorian monuments, and a population of feral monk parakeets make this
+                                one of Brooklyn's most unique walking sites.</p>
+                            <div class="hike-stats">
+                                <span class="stat">📍 Sunset Park</span>
+                                <span class="stat">📏 3.0 miles</span>
+                                <span class="stat difficulty-easy">Easy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- end #brooklyn -->
+
+
+    <!-- =============================================
+       QUEENS PAGE
+       ============================================= -->
+    <div id="queens" class="page">
+        <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+        <div class="borough-header">
+            <h1>Queens Trails</h1>
+            <p>From oceanside boardwalks to forest preserves, Queens has nature for every New Yorker.</p>
+        </div>
+        <div class="hikes-grid">
+            <div class="hike-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="icon">
+                            <img src="https://nycbirdalliance.org/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcU1CIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ac6ae6b9e825ee150abcad4fdaa4074c09b84433/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MY21WemFYcGxTU0lOTXpnd2VETTRNRjRHT2daRlZEb01aM0poZG1sMGVVa2lDMk5sYm5SbGNnWTdCbFE2QzJWNGRHVnVkRWtpRERNNE1IZ3pPREFHT3daVSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--2859a946e98bc42eb7def684f3d90bb51e6801b1/Common_Terns_Oystercatchers_JB_2019_Don_Riepe.jpg"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                            <span class="hike-img-label">Jamaica Bay</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="hike-body">
+                            <h3>Jamaica Bay Wildlife Refuge Loop</h3>
+                            <p>Run by the National Park Service, this refuge offers two trail loops around a brackish
+                                bay. Witness thousands of migratory birds.</p>
+                            <div class="hike-stats">
+                                <span class="stat">📍 Broad Channel</span>
+                                <span class="stat">📏 3.5 miles</span>
+                                <span class="stat difficulty-easy">Easy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hike-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="icon">
+                            <img src="https://images.squarespace-cdn.com/content/v1/5c087e9e4cde7a66033e482d/1748029965526-S089T6YEDZBCSABBEK4Y/Alley+Pond+4.jpg"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                            <span class="hike-img-label">Alley Pond Park</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="hike-body">
+                            <h3>Alley Pond Park Nature Trail</h3>
+                            <p>Home to NYC's oldest living inhabitant — a 350-year-old tulip tree — Alley Pond Park
+                                offers trails through freshwater wetlands.</p>
+                            <div class="hike-stats">
+                                <span class="stat">📍 Oakland Gardens</span>
+                                <span class="stat">📏 2.2 miles</span>
+                                <span class="stat difficulty-easy">Easy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hike-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="icon">
+                            <img src="https://res.cloudinary.com/sagacity/image/upload/c_crop,h_641,w_952,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1080/stjohns-bridge-forest-park_dd6zwb.jpg"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                            <span class="hike-img-label">Forest Park</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="hike-body">
+                            <h3>Forest Park Ridge Trail</h3>
+                            <p>Sitting atop a glacial moraine, Forest Park's ridge trails wind through one of the
+                                largest oak forests in NYC.</p>
+                            <div class="hike-stats">
+                                <span class="stat">📍 Woodhaven</span>
+                                <span class="stat">📏 4.1 miles</span>
+                                <span class="stat difficulty-moderate">Moderate</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- end #queens -->
+
+
+    <!-- =============================================
+       THE BRONX PAGE
+       ============================================= -->
+    <div id="bronx" class="page">
+        <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+        <div class="borough-header">
+            <h1>The Bronx Trails</h1>
+            <p>The Bronx offers rugged forest trails, serene rivers, and dramatic escarpments.</p>
+        </div>
+        <div class="hikes-grid">
+
+            <div class="hike-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="icon">
+                            <img src="https://cdn.backpacker.com/wp-content/uploads/2013/09/walkway-through-marshland.jpg?width=3840&auto=webp&quality=75&fit=cover"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                            <span class="hike-img-label">Pelham Bay Park</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="hike-body">
+                            <h3>Hunter Island Loop</h3>
+                            <p>NYC's largest park includes a loop through a rocky, forested peninsula featuring rocky
+                                shorelines and lagoon views.</p>
+                            <div class="hike-stats">
+                                <span class="stat">📍 Pelham Bay</span>
+                                <span class="stat">📏 2.8 miles</span>
+                                <span class="stat difficulty-moderate">Moderate</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hike-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="icon">
+                            <img src="https://images.squarespace-cdn.com/content/v1/5c087e9e4cde7a66033e482d/1751041249488-0CFMUN9NXPYMU11G3BBF/IMG_0306-+coutesy+of+Van+Cortlandt+Park+Alliance.jpg"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                            <span class="hike-img-label">Van Cortlandt Park</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="hike-body">
+                            <h3>Northwest Forest Trail</h3>
+                            <p>Ancient oaks canopy the path, and the John Muir Trail section cross through Van Cortlandt
+                                Park in the Bronx.</p>
+                            <div class="hike-stats">
+                                <span class="stat">📍 Riverdale</span>
+                                <span class="stat">📏 3.6 miles</span>
+                                <span class="stat difficulty-moderate">Moderate</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hike-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="icon">
+                            <img src="https://cloudfront.traillink.com/photos/bronx-river-greenway_56321_sc.jpg"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                            <span class="hike-img-label">Bronx River Greenway</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="hike-body">
+                            <h3>Bronx River Greenway Walk</h3>
+                            <p>Running through the Bronx Zoo and NY Botanical Garden, the path offers an eclectic mix of
+                                wildlife and riverside nature.</p>
+                            <div class="hike-stats">
+                                <span class="stat">📍 Bronx Zoo area</span>
+                                <span class="stat">📏 5.0 miles</span>
+                                <span class="stat difficulty-easy">Easy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- end #bronx -->
+
+
+    <!-- =============================================
+       STATEN ISLAND PAGE
+       ============================================= -->
+    <div id="staten-island" class="page">
+        <button class="back-btn" onclick="showPage('home')">← Back to Home</button>
+        <div class="borough-header">
+            <h1>Staten Island Trails</h1>
+            <p>The Greenbelt offers NYC's most rugged and expansive hiking, just a ferry ride away.</p>
+        </div>
+        <div class="hikes-grid">
+            <div class="hike-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="icon">
+                            <img src="https://images.squarespace-cdn.com/content/v1/5235cb72e4b01ae2ba612744/1463864155071-PLUIRNLP4KRGRFO2VF9T/Screen+Shot+2016-05-21+at+4.47.15+PM.png"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                            <span class="hike-img-label">The Greenbelt</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="hike-body">
+                            <h3>Greenbelt High Rock Trail</h3>
+                            <p>High Rock Park's trails wind through swamps, ponds, and forests with challenging terrain
+                                and significant biodiversity.</p>
+                            <div class="hike-stats">
+                                <span class="stat">📍 New Dorp</span>
+                                <span class="stat">📏 4.5 miles</span>
+                                <span class="stat difficulty-moderate">Moderate</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hike-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="icon">
+                            <img src="https://www.nycgovparks.org/pagefiles/68/conference-house-park-beach.jpg"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                            <span class="hike-img-label">Conference House Park</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="hike-body">
+                            <h3>Coastal Trail</h3>
+                            <p>At the southernmost tip of NYC, this trail hugs the shoreline of Raritan Bay before
+                                ducking into forest.</p>
+                            <div class="hike-stats">
+                                <span class="stat">📍 Tottenville</span>
+                                <span class="stat">📏 3.2 miles</span>
+                                <span class="stat difficulty-easy">Easy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hike-card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <div class="icon">
+                            <img src="https://assets.simpleviewinc.com/simpleview/image/upload/crm/newyorkstate/snugharbor_taggeryanceyiv_4105snugharbor_taggeryanceyiv_41051_af256d35-9fbe-fe27-1abb2609ccf31ce6.jpg"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+                            <span class="hike-img-label">Snug Harbor</span>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="hike-body">
+                            <h3>Cultural Center Trail</h3>
+                            <p>Wander through the New York Chinese Scholar's Garden, wetland boardwalks, and meadow
+                                restoration areas.</p>
+                            <div class="hike-stats">
+                                <span class="stat">📍 Livingston</span>
+                                <span class="stat">📏 1.5 miles</span>
+                                <span class="stat difficulty-easy">Easy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- end #staten-island -->
+
+
+    <!-- =============================================
+       FOOTER
+       ============================================= -->
+    <footer>
+        <p>🌿 NYC Trail Guide &nbsp;|&nbsp; Built with <span>HTML, CSS & JavaScript</span> &nbsp;</p>
+        <p style="margin-top:6px; opacity:0.7; font-size:0.8rem;"></p>
+    </footer>
+
+
+    <!-- Link to our external JavaScript file — placed at the bottom of body
+       so the HTML loads before the script tries to find elements on the page -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,501 @@
+/* =========================================
+   CSS VARIABLES
+   ========================================= */
+:root {
+  --green-dark:   #2d4a22;
+  --green-mid:    #4a7c3f;
+  --green-light:  #8db87a;
+  --tan:          #f2ead8;
+  --tan-dark:     #ddd0b3;
+  --brown:        #6b4f2e;
+  --white:        #fafaf7;
+  --text:         #2a2a2a;
+  --shadow:       rgba(0,0,0,0.15);
+  --radius:       12px;
+  --transition:   0.3s ease;
+}
+
+/* =========================================
+   RESET & BASE STYLES
+   ========================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: var(--white);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+/* =========================================
+   NAVIGATION BAR
+   ========================================= */
+nav {
+  background-color: var(--green-dark);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px var(--shadow);
+}
+
+.nav-logo {
+  color: var(--tan);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.nav-logo span {
+  color: var(--green-light);
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Nav buttons for each borough */
+.nav-btn {
+  background: transparent;
+  border: 1px solid var(--green-light);
+  color: var(--tan);
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  transition: background var(--transition), color var(--transition);
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background: var(--green-light);
+  color: var(--green-dark);
+  font-weight: 700;
+}
+/* Enhanced Active State for Nav Buttons */
+.nav-btn.active {
+  background: var(--green-light);
+  color: var(--green-dark);
+  font-weight: 700;
+  border-color: var(--white);
+  /* The "Glow" effect */
+  box-shadow: 0 0 15px rgba(141, 184, 122, 0.6); 
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Subtle pulse animation for the active borough */
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 5px rgba(141, 184, 122, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(141, 184, 122, 0.8); }
+  100% { box-shadow: 0 0 5px rgba(141, 184, 122, 0.4); }
+}
+
+.nav-btn.active {
+  animation: pulse-glow 2s infinite;
+}
+/* =========================================
+   PAGE SYSTEM — show/hide pages with JS
+   ========================================= */
+.page {
+  display: none;         /* all pages hidden by default */
+  animation: fadeIn 0.5s ease;
+}
+
+.page.active {
+  display: block;        /* JS adds .active to show a page */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   HERO SECTION (Launch Page)
+   ========================================= */
+.hero {
+  background: linear-gradient(160deg, var(--green-dark) 0%, var(--green-mid) 60%, var(--green-light) 100%);
+  color: var(--white);
+  text-align: center;
+  padding: 100px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative circle in the background */
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 50%;
+  top: -200px;
+  right: -150px;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  margin-bottom: 16px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+.hero p {
+  font-size: 1.15rem;
+  max-width: 680px;
+  margin: 0 auto 40px;
+  font-weight: 300;
+  opacity: 0.92;
+}
+
+/* =========================================
+   BOROUGH BUTTON GRID (on launch page)
+   ========================================= */
+/* Ensure the grid doesn't squash the cards */
+.borough-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+/* Set a uniform size for the cards */
+.borough-card {
+  background: var(--white);
+  border: 2px solid var(--tan-dark);
+  border-radius: var(--radius);
+  width: 220px;
+  height: 280px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition), box-shadow var(--transition);
+  padding: 0;
+  cursor: pointer; 
+}
+
+/* Container for the image */
+.borough-card .icon {
+  width: 100%;
+  height: 200px; /* Image takes up the top 200px */
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+/* The Image itself */
+.borough-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crops the image to fit the box perfectly */
+  display: block;
+}
+
+/* Style the text below the image */
+.borough-card h3 {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 10px;
+  color: var(--green-dark);
+}
+
+/* =========================================
+   INTRO BLURB on launch page
+   ========================================= */
+.intro-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  text-align: center;
+}
+
+.intro-section h2 {
+  color: var(--green-dark);
+  font-size: 1.9rem;
+  margin-bottom: 16px;
+}
+
+.intro-section p {
+  color: #555;
+  margin-bottom: 14px;
+}
+
+.tip-box {
+  background: var(--tan);
+  border-left: 4px solid var(--green-mid);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-top: 32px;
+  text-align: left;
+}
+
+.tip-box h3 {
+  color: var(--brown);
+  margin-bottom: 8px;
+}
+
+.tip-box ul {
+  padding-left: 20px;
+  color: #555;
+}
+
+.tip-box li {
+  margin-bottom: 6px;
+}
+
+/* =========================================
+   BOROUGH PAGE LAYOUT
+   ========================================= */
+.borough-header {
+  background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+  color: var(--white);
+  padding: 56px 24px 40px;
+  text-align: center;
+}
+
+.borough-header h1 {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  margin-bottom: 10px;
+}
+
+.borough-header p {
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.88;
+  font-weight: 300;
+}
+
+/* Back button on borough pages */
+.back-btn {
+  display: inline-block;
+  margin: 32px 32px 0;
+  background: var(--tan);
+  border: 2px solid var(--tan-dark);
+  color: var(--brown);
+  padding: 8px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: background var(--transition);
+}
+
+.back-btn:hover {
+  background: var(--tan-dark);
+}
+
+/* =========================================
+   HIKE CARDS GRID
+   ========================================= */
+.hikes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  padding: 40px 32px 60px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* 1. Define a uniform size for the 'stage' */
+.hike-card {
+  perspective: 1000px;
+  height: 450px; /* Increase this if you have a lot of text */
+  width: 100%;   /* Let the grid handle the width */
+  margin-bottom: 20px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.hike-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* 2. Unified face styling */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 18px var(--shadow);
+  overflow: hidden; /* Keeps the image from spilling out */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 3. Fix the Elongated Image */
+.hike-card-img {
+  width: 100%;
+  height: 100%;
+  /* This is the magic line: it crops the image to fill the space 
+     without stretching it */
+  object-fit: cover; 
+}
+
+/* 4. Fix the Cut-off Text */
+.card-back {
+  background: var(--tan);
+  transform: rotateY(180deg);
+  padding: 20px;
+  justify-content: center; /* Vertically centers the text */
+  align-items: center;     /* Horizontally centers the text */
+  text-align: center;
+}
+.card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 18px var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Stacks image and label vertically */
+  background: var(--white);
+}
+
+/* Adjust the image container to leave room for the label */
+.card-front .icon {
+  width: 100%;
+  height: 380px; /* Adjust this height to control image size */
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Updated Label: Centered in the remaining space below the photo */
+.hike-img-label {
+  position: static; /* Removes the "pinned on top" behavior */
+  flex-grow: 1;    /* Takes up the rest of the card height */
+  display: flex;
+  align-items: center;     /* Vertically centers text in the label area */
+  justify-content: center;  /* Horizontally centers text */
+  background: var(--white); /* Or var(--tan) if you want contrast */
+  color: var(--green-dark);
+  padding: 10px;
+  text-align: center;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif; /* Matching your headers */
+  font-size: 1.2rem;
+  border-top: 1px solid var(--tan-dark); /* Adds a nice divider */
+}
+
+.hike-body {
+  /* This ensures that if the text is STILL too long, 
+     it will scroll rather than disappear */
+  overflow-y: auto; 
+  padding: 10px;
+}
+
+.hike-body h3 {
+  font-family: 'Playfair Display', serif; /* Keeps your chosen header font */
+  font-weight: 700;                       /* Forces the Bold look */
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: var(--green-dark);
+  text-align: center;                     /* Centers the park name */
+}
+
+.hike-body p {
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  color: var(--text);
+  text-align: center;                     /* Centers the description */
+}
+
+.hike-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;                /* Centers the 📍 📏 🟢 tags */
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.stat {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  background: var(--white);
+  border: 1px solid var(--tan-dark);
+  white-space: nowrap;
+}
+
+.hike-img-label {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  background: rgba(45, 74, 34, 0.8); /* Semi-transparent green-dark */
+  color: var(--white);
+  padding: 8px;
+  text-align: center;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  backdrop-filter: blur(4px); /* Modern "frosted glass" look */
+}
+
+.stat.difficulty-easy     { background: #d4edda; border-color: #a8d5b5; color: #2d6a4f; }
+.stat.difficulty-moderate { background: #fff3cd; border-color: #ffc107; color: #856404; }
+.stat.difficulty-hard     { background: #f8d7da; border-color: #f5c6cb; color: #721c24; }
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+  background: var(--green-dark);
+  color: var(--tan);
+  text-align: center;
+  padding: 28px 16px;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+footer span {
+  color: var(--green-light);
+}
+
+/* =========================================
+   RESPONSIVE — stack nav on small screens
+   ========================================= */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 12px 16px;
+    gap: 10px;
+  }
+  .nav-links {
+    justify-content: center;
+  }
+  .hikes-grid {
+    padding: 24px 16px 48px;
+  }
+}
