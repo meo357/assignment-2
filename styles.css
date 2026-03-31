@@ -499,3 +499,38 @@ footer span {
     padding: 24px 16px 48px;
   }
 }
+
+
+/* 1. Target the section where the map lives */
+#map-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers both the header AND the map */
+    padding: 40px 0;    /* Adds some breathing room top and bottom */
+}
+
+/* 2. Style the header specifically */
+#map-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 3. Force the map container to be centered and wide */
+.map-container {
+    width: 90%;          /* Adjust this to 100% if you want it to touch the edges */
+    max-width: 1200px;   /* Prevents it from being TOO wide on huge screens */
+    height: 600px;
+    border: 2px solid #2e7d32;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Adds a nice "pro" shadow */
+}
+
+/* 4. Ensure the iframe fills that container completely */
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
