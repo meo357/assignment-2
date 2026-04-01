@@ -369,6 +369,23 @@ nav {
   align-items: center;     /* Horizontally centers the text */
   text-align: center;
 }
+
+/* Targets the text specifically on the back of your trail cards */
+.card-back, .trail-details, .park-info {
+    color: #0b1a10; /* The Dark Green background color you used earlier */
+}
+
+/* If you have specific labels like 'Distance' or 'Location' */
+.card-back h3, 
+.card-back p, 
+.card-back span {
+    color: #0b1a10;
+}
+
+/* Ensuring icons (if any) also switch to dark green */
+.card-back i {
+    color: #2e7d32; /* A slightly brighter green for icons to make them pop */
+}
 .card-front {
   position: absolute;
   width: 100%;
@@ -535,15 +552,7 @@ footer span {
     display: block;
 }
 
-/* Prevents the map from capturing the scroll wheel immediately */
-.map-container iframe {
-    pointer-events: none;
-}
 
-/* Re-enables the map when the user clicks/interacts with the container */
-.map-container.active iframe {
-    pointer-events: auto;
-}
 /* 1. The Dark Green Background */
 body {
     background-color: #1b3022; /* Deep Forest/Dark Green */
@@ -620,4 +629,51 @@ header h1 {
     margin: 0;
     line-height: 1.4;
     opacity: 0.85;
+}
+
+
+/* This centers the button and adds a buffer at the bottom */
+.button-container {
+    display: flex;          /* Enables flexible layout */
+    justify-content: center; /* Centers the button horizontally */
+    padding: 40px 0;        /* Adds 40px of space above and BELOW the button */
+    width: 100%;            /* Ensures the container spans the whole page */
+}
+
+/* Style for your specific back-btn class */
+.back-btn {
+    background-color: #2e7d32; /* Forest Green to match your theme */
+    color: white;
+    padding: 10px 25px;
+    border: 1px solid #4caf50;
+    border-radius: 6px;
+    cursor: pointer;          /* Shows the 'hand' icon on hover */
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;    /* Pushes it down away from the very top edge */
+    margin-bottom: 15px; /* Pushes it up away from the bottom text/edge */
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.back-btn:hover {
+    background-color: #1b5e20; /* Darker green on hover */
+}
+
+/* 1. The Container: This controls the 'window' the map sits in */
+.map-container {
+    width: 100%;           /* Fills the horizontal space */
+    height: 500px;         /* Gives it a solid vertical presence */
+    margin: 20px 0;        /* Adds spacing above/below so it doesn't touch text */
+    border: 2px solid #2e7d32; /* Optional: matches your dark green theme */
+    border-radius: 8px;    /* Optional: softens the corners */
+    overflow: hidden;      /* Keeps the map corners tidy */
+}
+
+/* 2. The Iframe: This tells the actual map to fill 100% of the container above */
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;          /* Removes the ugly default browser border */
+    display: block;
 }
